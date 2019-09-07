@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><link rel=icon href=./static/favicon.ico type=image/x-icon><title>person-ljw</title><link href=/static/css/app.adc5a4eeae08cf0d074f5c251140d073.css rel=stylesheet></head><body><canvas id=background></canvas><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.2093ab605f9acac16265.js></script><script type=text/javascript src=/static/js/app.29f8b2ca65081b107f7b.js></script></body><script>window.onload=function(){
+			if(!localStorage.getItem("scrollBarWidth")){
+				//将滚动条宽度保存
+				localStorage.setItem("scrollBarWidth", getScrollBarWidth());
+			}
+			document.getElementsByTagName('body')[0].style.width = (window.screen.availWidth - localStorage.getItem("scrollBarWidth") - 2) + 'px';
+		}
+		// 封装获取滚动条宽度
+		function getScrollBarWidth() {
+			var el = document.createElement("p"),
+			styles = {
+				width: "100px",
+				height: "100px",
+				overflowY: "scroll"
+			}
+			for (let i in styles) {
+				el.style[i] = styles[i];
+			}
+			document.body.appendChild(el);
+			var scrollBarWidth = el.offsetWidth - el.clientWidth;
+			el.remove();
+			return scrollBarWidth;
+		}</script></html><style>body{
+		margin: 0;
+		padding: 0;
+	}
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -99;
+	}</style>
